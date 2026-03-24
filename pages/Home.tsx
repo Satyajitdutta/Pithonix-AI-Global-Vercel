@@ -11,7 +11,7 @@ const Home: React.FC<HomeProps> = ({ openBooking }) => {
     return (
         <>
             {/* Hero Section - Streamlined & Elevated (Logo/Name removed per user request) */}
-            <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20">
+            <section className="relative min-h-screen flex flex-col items-center justify-start px-6 pt-32 pb-20">
                 <div className="max-w-6xl w-full text-center z-10 mt-6 md:mt-12">
                     <ScrollReveal>
                         <div className="mb-16 flex flex-col items-center">
