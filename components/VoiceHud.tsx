@@ -35,7 +35,9 @@ const VoiceHud: React.FC<VoiceHudProps> = ({ onOpenBooking }) => {
                 })
             });
             if (!response.ok) {
-                setStatus("Nexus Core | Config Error");
+                const errText = await response.text();
+                console.error("Sarvam TTS Error:", response.status, errText);
+                setStatus(`Nexus Core | API Error ${response.status}`);
                 return null;
             }
             const data = await response.json();
@@ -262,8 +264,13 @@ const VoiceHud: React.FC<VoiceHudProps> = ({ onOpenBooking }) => {
         // Playing a silent sound immediately in the click handler context
         // allows subsequent async audio.play() calls to work.
         const unlockAudio = new Audio("data:audio/wav;base64,UklGRigAAABXQVZFRm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAA+v/6v8=");
-        unlockAudio.volume = 0.1;
-        unlockAudio.play().catch(e => console.log("Unlock failed:", e));
+        unlockAudio.volume = 0.01;
+        unlockAudio.play().then(() => console.log("Nexus Core: Global Audio Unlocked")).catch(e => console.log("Unlock check:", e));
+
+        const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume().then(() => console.log("Nexus Core: Context Active"));
+        }
 
         if (isSessionActiveRef.current) {
             isSessionActiveRef.current = false;
