@@ -1,0 +1,7 @@
+{
+  "name": "PITHONIX AI GLOBAL",
+  "description": "Enterprise Data Insights and Semantic Intelligence Platform featuring the JEET Framework.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

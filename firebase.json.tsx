@@ -1,0 +1,1 @@
+// File deprecated. Please use the root firebase.json file.

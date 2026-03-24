@@ -1,0 +1,1 @@
+// File deprecated. Please use the root cloudbuild.yaml file.
