@@ -45,10 +45,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         <div className="relative w-20 h-20 flex-shrink-0">
                             <PithonixLogo size={80} animate={false} />
                         </div>
-                        <div className="flex flex-col items-center justify-center gap-1 flex-shrink-0">
+                        <div className="flex flex-col items-start justify-center gap-1 flex-shrink-0">
                             <img src={COMPANY_INFO.branding.text} alt="PITHONIX AI" className="h-10 w-auto object-contain" />
-                            <div className="h-8 flex items-center justify-center">
-                                <DynamicTagline className="w-full" delay={2000} />
+                            <div className="text-[10px] tracking-[0.2em] text-cyan/60 font-mono pl-1">
+                                INFORMATION TO INTELLIGENCE
                             </div>
                         </div>
                     </Link>

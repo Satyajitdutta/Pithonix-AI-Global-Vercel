@@ -14,7 +14,7 @@ const Home: React.FC<HomeProps> = ({ openBooking }) => {
             <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20">
                 <div className="max-w-6xl w-full text-center z-10 mt-6 md:mt-12">
                     <ScrollReveal>
-                        <div className="mb-10 flex flex-col items-center">
+                        <div className="mb-16 flex flex-col items-center">
                             {/* i2i Tagline is now the Hero Lead element - UPSIZED */}
                             <div className="relative">
                                 <DynamicTagline className="text-cyan font-bold tracking-[0.3em] text-2xl md:text-4xl" delay={300} />
