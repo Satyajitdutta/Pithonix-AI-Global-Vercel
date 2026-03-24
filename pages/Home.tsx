@@ -25,7 +25,7 @@ const Home: React.FC<HomeProps> = ({ openBooking }) => {
                     </ScrollReveal>
 
                     <ScrollReveal delay={500}>
-                        <h1 className="font-heading font-black text-5xl md:text-7xl lg:text-8xl leading-none text-white mb-10 tracking-tight">
+                        <h1 className="font-heading font-black text-4xl md:text-6xl lg:text-[min(8vw,5rem)] leading-[1.1] text-white mb-10 tracking-tight">
                             Problems do not appear suddenly.<br />
                             They grow quietly.<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan to-teal ">
