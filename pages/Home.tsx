@@ -11,7 +11,7 @@ const Home: React.FC<HomeProps> = ({ openBooking }) => {
     return (
         <>
             {/* Hero Section - Streamlined & Elevated (Logo/Name removed per user request) */}
-            <section className="relative min-h-[70vh] flex flex-col items-center justify-start px-6 pt-4 md:pt-8">
+            <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-20">
                 <div className="max-w-6xl w-full text-center z-10 mt-6 md:mt-12">
                     <ScrollReveal>
                         <div className="mb-10 flex flex-col items-center">
@@ -25,7 +25,7 @@ const Home: React.FC<HomeProps> = ({ openBooking }) => {
                     </ScrollReveal>
 
                     <ScrollReveal delay={500}>
-                        <h1 className="font-heading font-black text-3xl md:text-5xl lg:text-5xl leading-tight text-white mb-10 tracking-tight">
+                        <h1 className="font-heading font-black text-5xl md:text-7xl lg:text-8xl leading-none text-white mb-10 tracking-tight">
                             Problems do not appear suddenly.<br />
                             They grow quietly.<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan to-teal ">
