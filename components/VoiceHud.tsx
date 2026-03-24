@@ -40,15 +40,14 @@ const VoiceHud: React.FC<VoiceHudProps> = ({ onOpenBooking }) => {
             }
             const data = await response.json();
             if (data.audio_content) {
-                // Detect format by signature
-                const isWav = data.audio_content.startsWith("UklGR");
-                const mimeType = isWav ? 'audio/wav' : 'audio/mpeg';
-
+                // Convert base64 to ArrayBuffer for AudioContext
                 const binary = window.atob(data.audio_content);
-                const array = new Uint8Array(binary.length);
-                for (let i = 0; i < binary.length; i++) array[i] = binary.charCodeAt(i);
-                const blob = new Blob([array], { type: mimeType });
-                return URL.createObjectURL(blob);
+                const buffer = new ArrayBuffer(binary.length);
+                const view = new Uint8Array(buffer);
+                for (let i = 0; i < binary.length; i++) view[i] = binary.charCodeAt(i);
+
+                // Return original base64 to try multiple playback methods
+                return data.audio_content;
             }
         } catch (error) {
             console.error("Sarvam TTS Error:", error);
@@ -130,15 +129,22 @@ const VoiceHud: React.FC<VoiceHudProps> = ({ onOpenBooking }) => {
         setIsSpeaking(true);
         setStatus("Nexus Core | Synthesizing...");
 
-        const audioUri = await fetchSarvamTTS(text);
-        if (audioUri) {
+        const base64Audio = await fetchSarvamTTS(text);
+        if (base64Audio) {
             try {
-                // Fetch the blob and decode it via AudioContext for maximum compatibility
-                const response = await fetch(audioUri);
-                const arrayBuffer = await response.arrayBuffer();
+                // Method 1: AudioContext Decoding (High Reliability)
+                const binary = window.atob(base64Audio);
+                const buffer = new ArrayBuffer(binary.length);
+                const view = new Uint8Array(buffer);
+                for (let i = 0; i < binary.length; i++) view[i] = binary.charCodeAt(i);
 
                 const audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
-                const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
+                if (audioCtx.state === 'suspended') {
+                    console.log("Nexus Core: AudioContext suspended, resuming...");
+                    await audioCtx.resume();
+                }
+
+                const audioBuffer = await audioCtx.decodeAudioData(buffer);
 
                 const source = audioCtx.createBufferSource();
                 source.buffer = audioBuffer;
@@ -147,7 +153,6 @@ const VoiceHud: React.FC<VoiceHudProps> = ({ onOpenBooking }) => {
                 setStatus("Nexus Core | Transmitting...");
                 source.onended = () => {
                     setIsSpeaking(false);
-                    URL.revokeObjectURL(audioUri); // Cleanup
                     if (callback) {
                         callback();
                         isSessionActiveRef.current = false;
@@ -157,13 +162,34 @@ const VoiceHud: React.FC<VoiceHudProps> = ({ onOpenBooking }) => {
                         setStatus("Nexus Core | Idle");
                     }
                 };
-
                 source.start(0);
             } catch (playError) {
-                console.error("AudioContext Play failed:", playError);
-                setIsSpeaking(false);
-                setStatus("Nexus Core | Error");
-                if (isSessionActiveRef.current) startListening();
+                console.error("AudioContext failed, trying fallback:", playError);
+                // Method 2: Fallback to simple Audio element with Data URI
+                const isWav = base64Audio.startsWith("UklGR");
+                const audio = new Audio(`data:audio/${isWav ? 'wav' : 'mpeg'};base64,${base64Audio}`);
+                audio.onplay = () => setStatus("Nexus Core | Transmitting...");
+                audio.onended = () => {
+                    setIsSpeaking(false);
+                    if (callback) {
+                        callback();
+                        isSessionActiveRef.current = false;
+                    } else if (isSessionActiveRef.current) {
+                        startListening();
+                    } else {
+                        setStatus("Nexus Core | Idle");
+                    }
+                };
+                audio.onerror = () => {
+                    setIsSpeaking(false);
+                    setStatus("Nexus Core | Offline");
+                    if (isSessionActiveRef.current) startListening();
+                };
+                audio.play().catch(() => {
+                    setIsSpeaking(false);
+                    setStatus("Nexus Core | Error");
+                    if (isSessionActiveRef.current) startListening();
+                });
             }
         } else {
             setIsSpeaking(false);
@@ -256,7 +282,9 @@ const VoiceHud: React.FC<VoiceHudProps> = ({ onOpenBooking }) => {
             beep.play().catch(() => { });
 
             // Welcome sequence with explicit logic check
-            speak("Nexus Core initialized. I am your interface to Pithonix Semantic Intelligence. How may I assist your organizational strategy today?");
+            const welcomeText = "Nexus Core initialized. I am your interface to Pithonix Semantic Intelligence. How may I assist your organizational strategy today?";
+            console.log("Nexus Core: Initiating Welcome Sequence...");
+            speak(welcomeText);
         }
     };
 
