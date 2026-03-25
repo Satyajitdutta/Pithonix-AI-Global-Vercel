@@ -2,7 +2,7 @@ import React from 'react';
 
 const CircuitBackground: React.FC = () => {
     return (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20 select-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40 select-none">
             <svg
                 width="100%"
                 height="100%"
@@ -18,40 +18,40 @@ const CircuitBackground: React.FC = () => {
                     </linearGradient>
                 </defs>
 
-                {/* Circuit Traces */}
-                <g stroke="rgba(102, 252, 241, 0.1)" strokeWidth="0.5" fill="none">
-                    {/* Horizontal/Vertical Grid Base */}
-                    <path d="M 0 100 H 1000 M 0 300 H 1000 M 0 500 H 1000 M 0 700 H 1000 M 0 900 H 1000" />
-                    <path d="M 100 0 V 1000 M 300 0 V 1000 M 500 0 V 1000 M 700 0 V 1000 M 900 0 V 1000" />
-
-                    {/* Diagonal Connections */}
-                    <path d="M 100 100 L 200 200 M 500 300 L 600 400 M 800 100 L 900 200" />
-                    <path d="M 300 700 L 400 800 M 700 500 L 800 600" />
+                {/* Circuit Traces - Background Grid */}
+                <g stroke="#45a29e" strokeWidth="0.5" fill="none" className="opacity-20">
+                    <path d="M 0 50 H 1000 M 0 150 H 1000 M 0 250 H 1000 M 0 350 H 1000 M 0 450 H 1000 M 0 550 H 1000 M 0 650 H 1000 M 0 750 H 1000 M 0 850 H 1000 M 0 950 H 1000" />
+                    <path d="M 50 0 V 1000 M 150 0 V 1000 M 250 0 V 1000 M 350 0 V 1000 M 450 0 V 1000 M 550 0 V 1000 M 650 0 V 1000 M 750 0 V 1000 M 850 0 V 1000 M 950 0 V 1000" />
                 </g>
 
-                {/* Flowing Pulses */}
+                {/* Primary Traces */}
+                <g stroke="#66fcf1" strokeWidth="1" fill="none" className="opacity-10">
+                    <path d="M 100 100 H 900 V 900 H 100 Z" />
+                    <path d="M 200 200 H 800 V 800 H 200 Z" />
+                    <path d="M 300 300 H 700 V 700 H 300 Z" />
+                    <path d="M 400 400 H 600 V 600 H 400 Z" />
+                </g>
+
+                {/* Flowing Pulses - High Visibility */}
                 <g className="circuit-pulses">
-                    {/* Row 1 */}
-                    <path d="M 0 100 H 1000" className="animate-circuit-flow-1" stroke="url(#pulse-grad)" strokeWidth="2" strokeDasharray="100 900" />
-                    {/* Col 2 */}
-                    <path d="M 300 0 V 1000" className="animate-circuit-flow-2" stroke="url(#pulse-grad)" strokeWidth="2" strokeDasharray="100 900" />
-                    {/* Diagonal 1 */}
-                    <path d="M 100 100 L 500 500" className="animate-circuit-flow-3" stroke="url(#pulse-grad)" strokeWidth="2" strokeDasharray="50 450" />
-                    {/* Row 3 */}
-                    <path d="M 1000 500 H 0" className="animate-circuit-flow-reverse" stroke="url(#pulse-grad)" strokeWidth="2" strokeDasharray="150 850" />
-                    {/* Col 4 */}
-                    <path d="M 700 1000 V 0" className="animate-circuit-flow-reverse" stroke="url(#pulse-grad)" strokeWidth="2" strokeDasharray="120 880" />
+                    {/* Multi-directional flows */}
+                    <path d="M 0 100 H 1000" className="animate-circuit-flow-1" stroke="#66fcf1" strokeWidth="2" strokeDasharray="150 850" />
+                    <path d="M 1000 300 H 0" className="animate-circuit-flow-reverse" stroke="#66fcf1" strokeWidth="2" strokeDasharray="200 800" />
+                    <path d="M 500 0 V 1000" className="animate-circuit-flow-2" stroke="#66fcf1" strokeWidth="2" strokeDasharray="120 880" />
+                    <path d="M 800 1000 V 0" className="animate-circuit-flow-reverse" stroke="#66fcf1" strokeWidth="2" strokeDasharray="180 820" />
+
+                    {/* Diagonal Pulse */}
+                    <path d="M 100 100 L 900 900" className="animate-circuit-flow-3" stroke="#66fcf1" strokeWidth="2" strokeDasharray="100 900" />
+                    <path d="M 900 100 L 100 900" className="animate-circuit-flow-3" stroke="#66fcf1" strokeWidth="2" strokeDasharray="100 900" />
                 </g>
 
-                {/* Static Glowing Nodes at intersections */}
-                <g fill="#66fcf1" className="opacity-40">
-                    <circle cx="100" cy="100" r="2" />
-                    <circle cx="300" cy="300" r="2" />
-                    <circle cx="500" cy="500" r="2" />
-                    <circle cx="700" cy="700" r="2" />
-                    <circle cx="900" cy="900" r="2" />
-                    <circle cx="500" cy="300" r="2" />
-                    <circle cx="300" cy="700" r="2" />
+                {/* Pulsing Nodes */}
+                <g fill="#66fcf1">
+                    {[100, 300, 500, 700, 900].map(x =>
+                        [100, 300, 500, 700, 900].map(y => (
+                            <circle key={`${x}-${y}`} cx={x} cy={y} r="2" className="animate-pulse" />
+                        ))
+                    )}
                 </g>
             </svg>
         </div>
