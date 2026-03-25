@@ -219,3 +219,33 @@ h6 {
     animation: fade-vibrant 5s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards !important;
     opacity: 0;
 }
+/* Circuit Board Flow Animations */
+@keyframes circuit-flow {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.animate-circuit-flow-1 {
+    animation: circuit-flow 12s linear infinite;
+}
+
+.animate-circuit-flow-2 {
+    animation: circuit-flow 15s linear infinite reverse;
+}
+
+.animate-circuit-flow-3 {
+    animation: circuit-flow 20s linear infinite;
+}
+
+.animate-circuit-flow-reverse {
+    animation: circuit-flow 18s linear infinite reverse;
+}
+
+.circuit-pulses path {
+    filter: drop-shadow(0 0 5px rgba(102, 252, 241, 0.8));
+    stroke-linecap: round;
+}
