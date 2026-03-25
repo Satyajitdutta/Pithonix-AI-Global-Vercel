@@ -41,34 +41,34 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <div className="w-full px-12 h-32 flex items-center justify-between">
 
                     {/* Rigid Branding Block - Independent of Nav Flow */}
-                    <div className="flex-shrink-0 w-[400px]">
-                        <Link to="/" className="flex items-start gap-6 group">
-                            <div className="relative w-24 h-24 flex-shrink-0">
-                                <PithonixLogo size={96} animate={false} />
+                    <div className="flex-shrink-0 w-[350px]">
+                        <Link to="/" className="flex items-start gap-5 group">
+                            <div className="relative w-20 h-20 flex-shrink-0">
+                                <PithonixLogo size={80} animate={false} />
                             </div>
-                            <div className="flex flex-col items-start gap-1 flex-shrink-0 pt-1">
-                                <img src={COMPANY_INFO.branding.text} alt="PITHONIX AI" className="h-10 w-auto object-contain" />
-                                <div className="h-8 flex items-center justify-start border-b border-cyan/30 w-full overflow-hidden">
-                                    <DynamicTagline className="whitespace-nowrap text-[13px] tracking-[0.2em] font-medium" delay={2000} />
+                            <div className="flex flex-col items-start gap-1 flex-shrink-0 pt-2">
+                                <img src={COMPANY_INFO.branding.text} alt="PITHONIX AI" className="h-8 w-auto object-contain" />
+                                <div className="h-6 flex items-center justify-start border-b border-cyan/30 w-full overflow-hidden">
+                                    <DynamicTagline className="whitespace-nowrap text-[10px] tracking-[0.2em] font-medium" delay={2000} />
                                 </div>
                             </div>
                         </Link>
                     </div>
 
                     {/* Desktop Menu - Aligned to center */}
-                    <div className="hidden md:flex gap-8 text-sm font-bold tracking-widest text-silver/80 items-center">
+                    <div className="hidden md:flex gap-6 text-[11px] font-bold tracking-[0.2em] text-silver/80 items-center">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.path}
                                 to={link.path}
-                                className={`hover:text-cyan transition-colors uppercase ${isActive(link.path) ? 'text-cyan border-b border-cyan' : ''}`}
+                                className={`hover:text-cyan transition-colors uppercase whitespace-nowrap ${isActive(link.path) ? 'text-cyan border-b border-cyan' : ''}`}
                             >
                                 {link.name}
                             </Link>
                         ))}
                         <button
                             onClick={openBooking}
-                            className="px-4 py-2 border border-cyan text-cyan rounded hover:bg-cyan hover:text-obsidian transition-all uppercase"
+                            className="px-4 py-2 border border-cyan/50 text-cyan text-[10px] rounded hover:bg-cyan hover:text-obsidian transition-all uppercase whitespace-nowrap"
                         >
                             JOIN THE INTELLECTUAL LIST
                         </button>
