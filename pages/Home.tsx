@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
 import DynamicTagline from '../components/DynamicTagline';
 import { COMPANY_INFO } from '../constants';
+import CircuitBackground from '../components/CircuitBackground';
 
 interface HomeProps {
     openBooking: () => void;
@@ -13,6 +14,7 @@ const Home: React.FC<HomeProps> = ({ openBooking }) => {
         <>
             {/* Hero Section - Streamlined & Elevated (Logo/Name removed per user request) */}
             <section className="relative min-h-screen flex flex-col items-center justify-start px-6 pt-0 pb-20">
+                <CircuitBackground />
                 <div className="max-w-6xl w-full text-center z-10 mt-1 md:mt-2">
                     <ScrollReveal>
                         <div className="mb-2 flex flex-col items-center">
