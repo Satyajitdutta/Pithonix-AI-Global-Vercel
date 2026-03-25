@@ -43,16 +43,16 @@ const Home: React.FC<HomeProps> = ({ openBooking }) => {
                     </ScrollReveal>
 
                     <ScrollReveal delay={900}>
-                        <div className="flex flex-col md:flex-row gap-8 justify-center">
+                        <div className="flex flex-col md:flex-row gap-6 justify-center mt-10">
                             <button
                                 onClick={() => window.open('https://pithonix-simulator-public.vercel.app/', '_blank')}
-                                className="px-12 py-5 bg-cyan text-obsidian font-black tracking-widest rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(102,252,241,0.3)] hover:shadow-[0_0_40px_rgba(102,252,241,0.5)] uppercase"
+                                className="px-8 py-3 bg-cyan text-obsidian font-bold tracking-[0.2em] text-[10px] md:text-xs rounded hover:bg-white transition-all shadow-[0_0_15px_rgba(102,252,241,0.2)] hover:shadow-[0_0_30px_rgba(102,252,241,0.4)] uppercase"
                             >
                                 Initiate Protocol
                             </button>
                             <a
                                 href="/innovation"
-                                className="px-12 py-5 border-2 border-teal/40 text-teal font-black tracking-widest rounded hover:bg-teal hover:text-obsidian transition-all uppercase inline-block"
+                                className="px-8 py-3 border border-teal/40 text-teal font-bold tracking-[0.2em] text-[10px] md:text-xs rounded hover:bg-teal hover:text-obsidian transition-all uppercase inline-block"
                             >
                                 Learn More
                             </a>
