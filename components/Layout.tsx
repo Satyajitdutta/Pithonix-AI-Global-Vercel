@@ -42,12 +42,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
                     {/* Rigid Branding Block - Independent of Nav Flow */}
                     <div className="flex-shrink-0 w-[350px]">
-                        <Link to="/" className="flex items-start gap-5 group">
-                            <div className="relative w-20 h-20 flex-shrink-0">
-                                <PithonixLogo size={80} animate={false} />
+                        <Link to="/" className="flex items-start gap-6 group">
+                            <div className="relative w-24 h-24 flex-shrink-0">
+                                <PithonixLogo size={96} animate={false} />
                             </div>
-                            <div className="flex flex-col items-start gap-1 flex-shrink-0 pt-2">
-                                <img src={COMPANY_INFO.branding.text} alt="PITHONIX AI" className="h-8 w-auto object-contain" />
+                            <div className="flex flex-col items-start gap-1 flex-shrink-0 pt-1">
+                                <img src={COMPANY_INFO.branding.text} alt="PITHONIX AI" className="h-10 w-auto object-contain" />
                                 <div className="h-6 flex items-center justify-start border-b border-cyan/30 w-full">
                                     <DynamicTagline className="whitespace-nowrap text-[8px] tracking-[0.2em] font-medium" delay={2000} />
                                 </div>
@@ -56,7 +56,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     </div>
 
                     {/* Desktop Menu - Aligned to center */}
-                    <div className="hidden md:flex gap-6 text-[11px] font-bold tracking-[0.2em] text-silver/80 items-center">
+                    <div className="hidden md:flex gap-8 text-[12px] font-bold tracking-[0.2em] text-silver/80 items-center">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.path}
@@ -68,7 +68,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         ))}
                         <button
                             onClick={openBooking}
-                            className="px-4 py-2 border border-cyan/50 text-cyan text-[10px] rounded hover:bg-cyan hover:text-obsidian transition-all uppercase whitespace-nowrap"
+                            className="px-6 py-2.5 border border-cyan/50 text-cyan text-[11px] rounded hover:bg-cyan hover:text-obsidian transition-all uppercase whitespace-nowrap"
                         >
                             JOIN THE INTELLECTUAL LIST
                         </button>
