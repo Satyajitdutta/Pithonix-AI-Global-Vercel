@@ -22,16 +22,14 @@ const Home: React.FC<HomeProps> = ({ openBooking }) => {
                         </div>
                     </ScrollReveal>
 
-                    <ScrollReveal delay={200}>
-                        <h1 className="text-white font-black tracking-tight leading-[0.85] mb-4">
-                            <span className="block text-[clamp(2.5rem,7vw,4.5rem)] opacity-80">Problems do not appear</span>
-                            <span className="block text-[clamp(2.5rem,7vw,4.5rem)] animate-sudden">suddenly.</span>
-                            <span className="block text-[clamp(2.5rem,7vw,4.5rem)] opacity-90">They grow quietly.</span>
-                            <span className="block text-[clamp(2.5rem,7vw,4.5rem)] text-cyan filter drop-shadow-[0_0_30px_rgba(0,255,255,0.3)] mt-1 animate-vibrant">
-                                We make them visible.
-                            </span>
-                        </h1>
-                    </ScrollReveal>
+                    <h1 className="text-white font-black tracking-tight leading-[0.85] mb-4">
+                        <span className="block text-[clamp(2.5rem,7vw,4.5rem)] opacity-80 reveal-1">Problems do not appear</span>
+                        <span className="block text-[clamp(2.5rem,7vw,4.5rem)] animate-sudden">suddenly.</span>
+                        <span className="block text-[clamp(2.5rem,7vw,4.5rem)] opacity-90 reveal-3">They grow quietly.</span>
+                        <span className="block text-[clamp(2.5rem,7vw,4.5rem)] text-cyan filter drop-shadow-[0_0_30px_rgba(0,255,255,0.3)] mt-1 animate-vibrant">
+                            We make them visible.
+                        </span>
+                    </h1>
 
                     <ScrollReveal delay={400}>
                         <div className="flex flex-col items-center gap-1 mt-2">
