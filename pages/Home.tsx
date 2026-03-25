@@ -11,34 +11,37 @@ const Home: React.FC<HomeProps> = ({ openBooking }) => {
     return (
         <>
             {/* Hero Section - Streamlined & Elevated (Logo/Name removed per user request) */}
-            <section className="relative min-h-screen flex flex-col items-center justify-start px-6 pt-32 pb-20">
-                <div className="max-w-6xl w-full text-center z-10 mt-6 md:mt-12">
+            <section className="relative min-h-screen flex flex-col items-center justify-start px-6 pt-20 pb-20">
+                <div className="max-w-6xl w-full text-center z-10 mt-2 md:mt-4">
                     <ScrollReveal>
-                        <div className="mb-16 flex flex-col items-center">
+                        <div className="mb-4 flex flex-col items-center">
                             {/* i2i Tagline is now the Hero Lead element - UPSIZED */}
                             <div className="relative">
-                                <DynamicTagline className="text-cyan font-bold tracking-[0.3em] text-2xl md:text-4xl" delay={300} />
-                                {/* Underline decoration */}
-                                <div className="h-px w-48 bg-gradient-to-r from-transparent via-cyan to-transparent mx-auto mt-6" />
+                                <DynamicTagline className="text-cyan font-bold tracking-[0.3em] text-2xl md:text-3xl" delay={300} />
                             </div>
                         </div>
                     </ScrollReveal>
 
-                    <ScrollReveal delay={500}>
-                        <h1 className="font-heading font-black text-4xl md:text-6xl lg:text-[min(8vw,4.5rem)] leading-[1.1] text-white mb-10 tracking-tight lg:pr-24">
-                            Problems do not appear suddenly.<br />
-                            They grow quietly.<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan to-teal ">
+                    <ScrollReveal delay={200}>
+                        <h1 className="text-white font-black tracking-tight leading-[0.9] mb-6">
+                            <span className="block text-[clamp(2.5rem,8vw,5.5rem)]">Problems do not appear</span>
+                            <span className="block text-[clamp(3rem,10vw,7.5rem)]">suddenly.</span>
+                            <span className="block text-[clamp(2.5rem,8vw,5.5rem)]">They grow quietly.</span>
+                            <span className="block text-[clamp(3.5rem,12vw,9.5rem)] text-cyan filter drop-shadow-[0_0_30px_rgba(0,255,255,0.3)] mt-2">
                                 We make them visible.
                             </span>
                         </h1>
                     </ScrollReveal>
 
-                    <ScrollReveal delay={700}>
-                        <p className="text-lg md:text-xl text-silver/70 max-w-2xl mx-auto mb-14 font-light leading-relaxed">
-                            Empowering Enterprises with Semantic Intelligence.<br />
-                            Moving from surveillance to signals with the JEET Framework.
-                        </p>
+                    <ScrollReveal delay={400}>
+                        <div className="flex flex-col items-center gap-2 mt-4">
+                            <p className="text-silver/70 text-lg md:text-xl tracking-widest uppercase font-bold">
+                                Empowering Enterprises with Semantic Intelligence.
+                            </p>
+                            <p className="text-cyan/60 text-sm md:text-base tracking-[0.2em] font-mono italic">
+                                Moving from surveillance to signals with the JEET Framework.
+                            </p>
+                        </div>
                     </ScrollReveal>
 
                     <ScrollReveal delay={900}>
