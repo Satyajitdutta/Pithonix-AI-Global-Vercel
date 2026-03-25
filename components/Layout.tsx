@@ -38,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             {/* Navigation */}
             <nav className="fixed top-0 w-full z-40 backdrop-blur-md border-b border-white/5 bg-obsidian/80">
-                <div className="w-full px-12 h-28 flex items-start pt-6 justify-between">
+                <div className="w-full px-12 h-32 flex items-center justify-between">
 
                     {/* Logo Container - Far Left Alignment */}
                     <Link to="/" className="flex items-start gap-6 group flex-shrink-0">
@@ -53,8 +53,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         </div>
                     </Link>
 
-                    {/* Desktop Menu - Aligned to top row */}
-                    <div className="hidden md:flex gap-8 text-sm font-bold tracking-widest text-silver/80 items-center mt-3">
+                    {/* Desktop Menu - Aligned to center */}
+                    <div className="hidden md:flex gap-8 text-sm font-bold tracking-widest text-silver/80 items-center">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.path}
@@ -103,7 +103,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </nav>
 
             {/* Main Content */}
-            <main className="pt-28">
+            <main className="pt-32">
                 {children}
             </main>
 
