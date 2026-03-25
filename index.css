@@ -5,12 +5,18 @@ body {
     background-color: #0b0c10;
     color: #c5c6c7;
     overflow-x: hidden;
-    font-size: 18px; /* Globally increased font size */
+    font-size: 18px;
+    /* Globally increased font size */
     line-height: 1.6;
 }
 
 /* Override Tailwind heading base */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 0.05em;
 }
@@ -30,21 +36,29 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
     background: #0b0c10;
 }
+
 ::-webkit-scrollbar-thumb {
     background: #45a29e;
     border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #66fcf1;
 }
 
 /* Animations */
 @keyframes scan {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .animate-scan {
@@ -52,14 +66,76 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
 }
 
 .animate-glitch {
     animation: glitch 0.3s ease-in-out infinite;
+}
+
+@keyframes flicker-suddenly {
+
+    0%,
+    20%,
+    40%,
+    60% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    10%,
+    30%,
+    50%,
+    70% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    80%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-sudden {
+    animation: flicker-suddenly 0.8s ease-out forwards;
+}
+
+@keyframes fade-vibrant {
+    0% {
+        opacity: 0.1;
+        filter: saturate(0) blur(4px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: saturate(1.5) blur(0);
+    }
+}
+
+.animate-vibrant {
+    animation: fade-vibrant 2s ease-in-out forwards;
 }
