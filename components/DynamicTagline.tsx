@@ -60,8 +60,8 @@ const DynamicTagline: React.FC<DynamicTaglineProps> = ({ className }) => {
     return (
         <div className={`relative flex flex-col min-h-[1.5em] ${className}`}>
             <span
-                className={`font-mono transition-all duration-300 font-bold tracking-wider inline-block whitespace-nowrap
-                    ${isAnimating || phase === 'full' ? 'text-cyan scale-105 brightness-125' : 'text-cyan/60 scale-100'}`}
+                className={`font-mono transition-all duration-300 font-bold tracking-wider inline-block whitespace-nowrap origin-left
+                    ${isAnimating || phase === 'full' ? 'text-cyan scale-[1.02] brightness-125' : 'text-cyan/60 scale-100'}`}
             >
                 {displayText}
             </span>

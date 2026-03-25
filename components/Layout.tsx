@@ -48,7 +48,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                             </div>
                             <div className="flex flex-col items-start gap-1 flex-shrink-0 pt-2">
                                 <img src={COMPANY_INFO.branding.text} alt="PITHONIX AI" className="h-8 w-auto object-contain" />
-                                <div className="h-6 flex items-center justify-start border-b border-cyan/30 w-full overflow-hidden">
+                                <div className="h-6 flex items-center justify-start border-b border-cyan/30 w-full">
                                     <DynamicTagline className="whitespace-nowrap text-[8px] tracking-[0.2em] font-medium" delay={2000} />
                                 </div>
                             </div>
