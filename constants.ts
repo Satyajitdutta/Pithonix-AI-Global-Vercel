@@ -107,5 +107,9 @@ export const COMPANY_INFO = {
     { label: "Accuracy", value: "99.8%" },
     { label: "Agents", value: "25+" },
     { label: "Layers", value: "3" }
-  ]
+  ],
+  social: {
+    linkedin: "https://www.linkedin.com/company/pithonix-ai/",
+    twitter: "https://x.com/pithonix_ai"
+  }
 };
