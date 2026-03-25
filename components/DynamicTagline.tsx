@@ -58,7 +58,7 @@ const DynamicTagline: React.FC<DynamicTaglineProps> = ({ className }) => {
     }, [phase, scramble]);
 
     return (
-        <div className={`relative flex flex-col min-h-[1.5em] px-6 ${className}`}>
+        <div className={`relative flex flex-col min-h-[1.5em] ${className}`}>
             <span
                 className={`font-mono transition-all duration-300 font-bold tracking-wider inline-block whitespace-nowrap
                     ${isAnimating || phase === 'full' ? 'text-cyan scale-105 brightness-125' : 'text-cyan/60 scale-100'}
@@ -74,7 +74,7 @@ const DynamicTagline: React.FC<DynamicTaglineProps> = ({ className }) => {
 
             {/* Underline aesthetic - centered */}
             <div className={`h-[1.5px] bg-cyan/40 transition-all duration-1000 mt-1
-                ${phase === 'full' ? 'w-[110%] opacity-100' : 'w-8 opacity-40'}`}></div>
+                ${phase === 'full' ? 'w-full opacity-100' : 'w-8 opacity-40'}`}></div>
         </div>
     );
 };
