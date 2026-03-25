@@ -40,18 +40,20 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <nav className="fixed top-0 w-full z-40 backdrop-blur-md border-b border-white/5 bg-obsidian/80">
                 <div className="w-full px-12 h-32 flex items-center justify-between">
 
-                    {/* Logo Container - Far Left Alignment */}
-                    <Link to="/" className="flex items-start gap-6 group flex-shrink-0">
-                        <div className="relative w-24 h-24 flex-shrink-0">
-                            <PithonixLogo size={96} animate={false} />
-                        </div>
-                        <div className="flex flex-col items-start gap-1 w-80 flex-shrink-0">
-                            <img src={COMPANY_INFO.branding.text} alt="PITHONIX AI" className="h-10 w-auto object-contain" />
-                            <div className="h-8 flex items-center justify-start border-b border-cyan/30 w-full overflow-hidden">
-                                <DynamicTagline className="whitespace-nowrap text-sm tracking-widest" delay={2000} />
+                    {/* Rigid Branding Block - Independent of Nav Flow */}
+                    <div className="flex-shrink-0 w-[400px]">
+                        <Link to="/" className="flex items-start gap-6 group">
+                            <div className="relative w-24 h-24 flex-shrink-0">
+                                <PithonixLogo size={96} animate={false} />
                             </div>
-                        </div>
-                    </Link>
+                            <div className="flex flex-col items-start gap-1 flex-shrink-0 pt-1">
+                                <img src={COMPANY_INFO.branding.text} alt="PITHONIX AI" className="h-10 w-auto object-contain" />
+                                <div className="h-8 flex items-center justify-start border-b border-cyan/30 w-full overflow-hidden">
+                                    <DynamicTagline className="whitespace-nowrap text-[13px] tracking-[0.2em] font-medium" delay={2000} />
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
 
                     {/* Desktop Menu - Aligned to center */}
                     <div className="hidden md:flex gap-8 text-sm font-bold tracking-widest text-silver/80 items-center">
