@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import ScrollReveal from '../components/ScrollReveal';
 import DynamicTagline from '../components/DynamicTagline';
 import { COMPANY_INFO } from '../constants';
@@ -50,12 +50,12 @@ const Home: React.FC<HomeProps> = ({ openBooking }) => {
                             >
                                 Initiate Protocol
                             </button>
-                            <a
-                                href="/innovation"
-                                className="px-8 py-3 border border-teal/40 text-teal font-bold tracking-[0.2em] text-[10px] md:text-xs rounded hover:bg-teal hover:text-obsidian transition-all uppercase inline-block"
+                            <Link
+                                to="/innovation"
+                                className="px-8 py-3 border border-teal/40 text-teal font-bold tracking-[0.2em] text-[10px] md:text-xs rounded hover:bg-teal hover:text-obsidian transition-all uppercase inline-block flex items-center justify-center"
                             >
                                 Learn More
-                            </a>
+                            </Link>
                         </div>
                     </ScrollReveal>
                 </div>

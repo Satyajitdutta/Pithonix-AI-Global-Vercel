@@ -41,14 +41,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <div className="w-full px-12 h-28 flex items-start pt-6 justify-between">
 
                     {/* Logo Container - Far Left Alignment */}
-                    <Link to="/" className="flex items-center gap-6 group">
-                        <div className="relative w-20 h-20 flex-shrink-0">
-                            <PithonixLogo size={80} animate={false} />
+                    <Link to="/" className="flex items-start gap-6 group flex-shrink-0">
+                        <div className="relative w-24 h-24 flex-shrink-0">
+                            <PithonixLogo size={96} animate={false} />
                         </div>
-                        <div className="flex flex-col items-center justify-center gap-1 flex-shrink-0">
+                        <div className="flex flex-col items-start gap-1 w-80 flex-shrink-0">
                             <img src={COMPANY_INFO.branding.text} alt="PITHONIX AI" className="h-10 w-auto object-contain" />
-                            <div className="h-8 flex items-center justify-center">
-                                <DynamicTagline className="w-full" delay={2000} />
+                            <div className="h-8 flex items-center justify-start border-b border-cyan/30 w-full overflow-hidden">
+                                <DynamicTagline className="whitespace-nowrap text-sm tracking-widest" delay={2000} />
                             </div>
                         </div>
                     </Link>
