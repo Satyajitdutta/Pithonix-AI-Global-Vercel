@@ -1,24 +1,23 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import About from './pages/About';
-import Innovation from './pages/Innovation';
-import Competencies from './pages/Competencies';
-import Infrastructure from './pages/Infrastructure';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import BriefingSPA from './src/pages/BriefingSPA';
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home openBooking={() => { }} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/innovation" element={<Innovation />} />
-          <Route path="/competencies" element={<Competencies />} />
-          <Route path="/infrastructure" element={<Infrastructure />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        {/* The New High-Fidelity SPA Terminal */}
+        <Route path="/" element={<BriefingSPA />} />
+        
+        {/* Legacy Route Orchestration -> SPA Anchors */}
+        <Route path="/about" element={<Navigate to="/#problem" replace />} />
+        <Route path="/innovation" element={<Navigate to="/#framework" replace />} />
+        <Route path="/competencies" element={<Navigate to="/#architecture" replace />} />
+        <Route path="/infrastructure" element={<Navigate to="/#governance" replace />} />
+        
+        {/* Catch-all/Default */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </Router>
   );
 };

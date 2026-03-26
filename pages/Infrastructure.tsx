@@ -1,5 +1,6 @@
 import React from 'react';
 import ScrollReveal from '../components/ScrollReveal';
+import GovernanceSection from '../src/components/briefing/GovernanceSection';
 import DynamicTagline from '../components/DynamicTagline';
 import PithonixLogo from '../components/PithonixLogo';
 import { COMPANY_INFO } from '../constants';
@@ -36,8 +37,8 @@ const Infrastructure: React.FC = () => {
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded bg-white/5 flex items-center justify-center hover:bg-cyan hover:text-obsidian transition-colors"
                             >
-                                <span className="sr-only">Twitter</span>
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" /></svg>
+                                <span className="sr-only">X (formerly Twitter)</span>
+                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153zM17.61 20.644h2.039L6.486 3.24H4.298l13.312 17.404z" /></svg>
                             </a>
                         </div>
                     </ScrollReveal>
@@ -68,6 +69,10 @@ const Infrastructure: React.FC = () => {
                         </ul>
                     </ScrollReveal>
                 </div>
+            </div>
+
+            <div className="briefing-root" style={{ marginTop: '5rem' }}>
+                <GovernanceSection />
             </div>
         </section>
     );

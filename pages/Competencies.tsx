@@ -1,6 +1,8 @@
 import React from 'react';
 import ScrollReveal from '../components/ScrollReveal';
 import { JEET_AGENTS } from '../constants';
+import UseCasesSection from '../src/components/briefing/UseCasesSection';
+import TechStackSection from '../src/components/briefing/TechStackSection';
 
 const Competencies: React.FC = () => {
     return (
@@ -43,6 +45,11 @@ const Competencies: React.FC = () => {
                             </div>
                         </ScrollReveal>
                     ))}
+                </div>
+
+                <div className="briefing-root" style={{ marginTop: '5rem' }}>
+                    <UseCasesSection />
+                    <TechStackSection />
                 </div>
             </div>
         </section>

@@ -110,6 +110,6 @@ export const COMPANY_INFO = {
   ],
   social: {
     linkedin: "https://www.linkedin.com/company/pithonix-ai/",
-    twitter: "https://x.com/pithonix_ai"
+    twitter: "https://x.com/Pithonix_ai"
   }
 };

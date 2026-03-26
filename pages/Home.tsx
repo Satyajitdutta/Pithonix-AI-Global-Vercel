@@ -4,6 +4,8 @@ import ScrollReveal from '../components/ScrollReveal';
 import DynamicTagline from '../components/DynamicTagline';
 import { COMPANY_INFO } from '../constants';
 import CircuitBackground from '../components/CircuitBackground';
+import BriefingHero from '../src/components/briefing/BriefingHero';
+import TransformationSection from '../src/components/briefing/TransformationSection';
 
 interface HomeProps {
     openBooking: () => void;
@@ -12,57 +14,16 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ openBooking }) => {
     return (
         <>
-            {/* Hero Section - Streamlined & Elevated (Logo/Name removed per user request) */}
-            <section className="relative min-h-screen flex flex-col items-center justify-start px-6 pt-0 pb-20">
-                <CircuitBackground />
-                <div className="max-w-6xl w-full text-center z-10 mt-1 md:mt-2">
-                    <ScrollReveal>
-                        <div className="mb-2 flex flex-col items-center">
-                            {/* i2i Tagline is now the Hero Lead element - UPSIZED */}
-                            <div className="relative">
-                                <DynamicTagline className="text-cyan font-bold tracking-[0.3em] text-xl md:text-2xl" delay={300} />
-                            </div>
-                        </div>
-                    </ScrollReveal>
-
-                    <h1 className="text-white font-black tracking-tight leading-[0.85] mb-4">
-                        <span className="block text-[clamp(2.5rem,7vw,4.5rem)] opacity-80 reveal-1">Problems do not appear</span>
-                        <span className="block text-[clamp(2.5rem,7vw,4.5rem)] animate-sudden">suddenly.</span>
-                        <span className="block text-[clamp(2.5rem,7vw,4.5rem)] opacity-90 reveal-3">They grow quietly.</span>
-                        <span className="block text-[clamp(2.5rem,7vw,4.5rem)] text-cyan filter drop-shadow-[0_0_30px_rgba(0,255,255,0.3)] mt-1 animate-vibrant">
-                            We make them visible.
-                        </span>
-                    </h1>
-
-                    <ScrollReveal delay={400}>
-                        <div className="flex flex-col items-center gap-1 mt-2">
-                            <p className="text-silver/70 text-base md:text-lg tracking-widest uppercase font-bold">
-                                Empowering Enterprises with Semantic Intelligence.
-                            </p>
-                            <p className="text-cyan/60 text-xs md:text-sm tracking-[0.2em] font-mono italic">
-                                Moving from surveillance to signals with the JEET Framework.
-                            </p>
-                        </div>
-                    </ScrollReveal>
-
-                    <ScrollReveal delay={900}>
-                        <div className="flex flex-col md:flex-row gap-6 justify-center mt-10">
-                            <button
-                                onClick={() => window.open('https://pithonix-simulator-public.vercel.app/', '_blank')}
-                                className="px-8 py-3 bg-cyan text-obsidian font-bold tracking-[0.2em] text-[10px] md:text-xs rounded hover:bg-white transition-all shadow-[0_0_15px_rgba(102,252,241,0.2)] hover:shadow-[0_0_30px_rgba(102,252,241,0.4)] uppercase"
-                            >
-                                Initiate Protocol
-                            </button>
-                            <Link
-                                to="/innovation"
-                                className="px-8 py-3 border border-teal/40 text-teal font-bold tracking-[0.2em] text-[10px] md:text-xs rounded hover:bg-teal hover:text-obsidian transition-all uppercase inline-block flex items-center justify-center"
-                            >
-                                Learn More
-                            </Link>
-                        </div>
-                    </ScrollReveal>
-                </div>
-            </section>
+            <main className="briefing-root">
+                <section className="relative min-h-screen">
+                    <CircuitBackground />
+                    <div className="z-10 relative">
+                        <BriefingHero />
+                    </div>
+                </section>
+                
+                <TransformationSection />
+            </main>
 
             {/* About Us Teaser */}
             <section className="py-24 px-6 relative overflow-hidden bg-white/5">
