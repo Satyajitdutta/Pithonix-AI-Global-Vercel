@@ -14,6 +14,7 @@ const BriefingSPA: React.FC = () => {
     const [isTyping, setIsTyping] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
     const chatEndRef = useRef<HTMLDivElement>(null);
+    const isMounted = useRef(false);
 
     // ROI Calculator State
     const [headcount, setHeadcount] = useState(2500);
@@ -80,6 +81,10 @@ const BriefingSPA: React.FC = () => {
     }, []);
 
     useEffect(() => {
+        if (!isMounted.current) {
+            isMounted.current = true;
+            return;
+        }
         chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages, isTyping]);
 
