@@ -116,11 +116,18 @@ const BriefingSPA: React.FC = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ text })
             });
-            const blob = await response.blob();
-            const url = URL.createObjectURL(blob);
-            const audio = new Audio(url);
+            const data = await response.json();
+            if (data.error) throw new Error(JSON.stringify(data.error));
+            if (!data.audio) throw new Error("No audio data received");
+            
+            const audioUrl = `data:audio/wav;base64,${data.audio}`;
+            const audio = new Audio(audioUrl);
             audio.onended = () => setIsPlaying(false);
-            audio.play();
+            audio.onerror = (e) => {
+                console.error("Audio Playback Error:", e);
+                setIsPlaying(false);
+            };
+            await audio.play();
         } catch (error) {
             console.error("TTS Error:", error);
             setIsPlaying(false);
