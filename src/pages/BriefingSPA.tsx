@@ -433,12 +433,13 @@ const BriefingSPA: React.FC = () => {
                         </div>
 
                         <div className="p-4 border-t border-gb bg-obs flex gap-2">
-                            <input 
+                            <input
                                 value={jevaInput}
                                 onChange={e => setJevaInput(e.target.value)}
                                 onKeyDown={e => e.key === 'Enter' && handleSendMessage()}
-                                placeholder="Query the nervous system..." 
-                                className="flex-1 bg-char border border-gb rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-cyan"
+                                placeholder="Query the nervous system..."
+                                className="flex-1 border border-gb rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-cyan"
+                                style={{ backgroundColor: '#f0f4f8', color: '#1a1a2e' }}
                             />
                             <button onClick={() => handleSendMessage()} className="bg-cyan text-obs p-2 rounded-lg hover:brightness-125 transition-all">
                                 ➤
