@@ -104,14 +104,15 @@ const BriefingSPA: React.FC = () => {
                 body: JSON.stringify({ message: input, history: newMessages })
             });
             const data = await response.json();
-            if (data.reply) {
+            if (response.ok && data.reply) {
                 setMessages([...newMessages, { role: 'jeva', content: data.reply }]);
             } else {
-                throw new Error("No reply in response");
+                const errorMsg = data.message || data.error?.message || "I'm having trouble connecting to my neural core right now. Please try again.";
+                throw new Error(errorMsg);
             }
-        } catch (error) {
+        } catch (error: any) {
             console.error("JEVA Error:", error);
-            setMessages([...newMessages, { role: 'jeva', content: "I'm having trouble connecting to my neural core right now. Please try again." }]);
+            setMessages([...newMessages, { role: 'jeva', content: error.message }]);
         } finally {
             setIsTyping(false);
         }
