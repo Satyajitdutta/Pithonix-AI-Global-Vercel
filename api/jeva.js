@@ -16,6 +16,27 @@ function checkRateLimit(ip) {
   return { allowed: true, remaining: MAX_REQUESTS - record.count };
 }
 
+async function callGeminiWithRetry(url, body, maxRetries = 3) {
+  let delay = 1000;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    if (response.status === 429) {
+      if (attempt === maxRetries) return { response, data: await response.json() };
+      await new Promise(r => setTimeout(r, delay));
+      delay *= 2;
+      continue;
+    }
+
+    const data = await response.json();
+    return { response, data };
+  }
+}
+
 const JEVA_SYSTEM = `You are JEVA (Just-in-time Enterprise Voice Agent) — the autonomous AI voice agent built by Pithonix.ai, a DPIIT-recognised AI startup based in Hyderabad, India.
 
 Your identity:
@@ -78,32 +99,47 @@ export default async function handler(req, res) {
     }
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`;
 
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        system_instruction: {
-          parts: [{ text: JEVA_SYSTEM }]
-        },
-        contents: geminiContents,
-        generationConfig: {
-          maxOutputTokens: 800,
-          temperature: 0.7
-        }
-      })
+    const { response, data } = await callGeminiWithRetry(url, {
+      system_instruction: {
+        parts: [{ text: JEVA_SYSTEM }]
+      },
+      contents: geminiContents,
+      generationConfig: {
+        maxOutputTokens: 800,
+        temperature: 0.7
+      }
     });
-
-    const data = await response.json();
 
     if (!response.ok) {
       console.error('Gemini error:', JSON.stringify(data));
-      return res.status(response.status).json({ error: data });
+      if (response.status === 429) {
+        return res.status(503).json({
+          error: 'service_busy',
+          message: "JEVA is handling high demand right now. Please try again in a few seconds."
+        });
+      }
+      const geminiMsg = data?.error?.message;
+      return res.status(502).json({
+        error: 'upstream_error',
+        message: geminiMsg
+          ? `JEVA encountered an issue: ${geminiMsg}`
+          : "JEVA is temporarily unavailable. Please try again."
+      });
     }
 
-    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const candidate = data?.candidates?.[0];
+    const finishReason = candidate?.finishReason;
+    const reply = candidate?.content?.parts?.[0]?.text;
+
     if (!reply) {
-      console.error('No reply in Gemini response:', JSON.stringify(data));
-      return res.status(500).json({ error: 'Empty response from Gemini' });
+      console.error('No reply in Gemini response. finishReason:', finishReason, JSON.stringify(data));
+      if (finishReason === 'SAFETY') {
+        return res.status(200).json({ reply: "I can't respond to that particular query, but I'm happy to tell you about Pithonix.ai's platform or demonstrate a sales conversation. What would you like to explore?" });
+      }
+      return res.status(500).json({
+        error: 'no_reply',
+        message: "JEVA didn't generate a response. Please try rephrasing your question."
+      });
     }
 
     return res.status(200).json({ reply, remaining: limit.remaining });
