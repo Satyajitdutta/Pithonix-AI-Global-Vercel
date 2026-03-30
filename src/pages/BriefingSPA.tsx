@@ -15,8 +15,6 @@ const BriefingSPA: React.FC = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const chatEndRef = useRef<HTMLDivElement>(null);
     const isMounted = useRef(false);
-    const currentAudioRef = useRef<HTMLAudioElement | null>(null);
-    const isFetchingAudioRef = useRef(false);
 
     // ROI Calculator State
     const [headcount, setHeadcount] = useState(2500);
@@ -121,16 +119,6 @@ const BriefingSPA: React.FC = () => {
     };
 
     const speak = async (text: string) => {
-        if (isFetchingAudioRef.current) return;
-        isFetchingAudioRef.current = true;
-
-        // Stop any currently playing audio before starting a new one
-        if (currentAudioRef.current) {
-            currentAudioRef.current.pause();
-            currentAudioRef.current.src = '';
-            currentAudioRef.current = null;
-        }
-
         setIsPlaying(true);
         try {
             const response = await fetch('/api/speak', {
@@ -141,26 +129,17 @@ const BriefingSPA: React.FC = () => {
             const data = await response.json();
             if (data.error) throw new Error(JSON.stringify(data.error));
             if (!data.audio) throw new Error("No audio data received");
-
+            
             const audioUrl = `data:audio/wav;base64,${data.audio}`;
             const audio = new Audio(audioUrl);
-            currentAudioRef.current = audio;
-            audio.onended = () => {
-                currentAudioRef.current = null;
-                isFetchingAudioRef.current = false;
-                setIsPlaying(false);
-            };
+            audio.onended = () => setIsPlaying(false);
             audio.onerror = (e) => {
                 console.error("Audio Playback Error:", e);
-                currentAudioRef.current = null;
-                isFetchingAudioRef.current = false;
                 setIsPlaying(false);
             };
             await audio.play();
         } catch (error) {
             console.error("TTS Error:", error);
-            currentAudioRef.current = null;
-            isFetchingAudioRef.current = false;
             setIsPlaying(false);
         }
     };
@@ -442,12 +421,8 @@ const BriefingSPA: React.FC = () => {
                                     <div className={`max-w-[80%] p-3 rounded-xl text-sm ${m.role === 'user' ? 'bg-char border border-gb text-silver' : 'bg-cyan/10 border border-cyan/20 text-white'}`}>
                                         {m.content}
                                         {m.role === 'jeva' && (
-                                            <button
-                                                onClick={() => speak(m.content)}
-                                                disabled={isPlaying}
-                                                className="mt-2 block text-[10px] text-cyan/60 hover:text-cyan disabled:opacity-40 disabled:cursor-not-allowed"
-                                            >
-                                                {isPlaying ? '⏳ Loading audio...' : '🔊 Hear Response'}
+                                            <button onClick={() => speak(m.content)} className="mt-2 block text-[10px] text-cyan/60 hover:text-cyan">
+                                                🔊 Hear Response
                                             </button>
                                         )}
                                     </div>
@@ -458,13 +433,12 @@ const BriefingSPA: React.FC = () => {
                         </div>
 
                         <div className="p-4 border-t border-gb bg-obs flex gap-2">
-                            <input
+                            <input 
                                 value={jevaInput}
                                 onChange={e => setJevaInput(e.target.value)}
                                 onKeyDown={e => e.key === 'Enter' && handleSendMessage()}
-                                placeholder="Query the nervous system..."
-                                className="flex-1 border border-gb rounded-lg px-4 py-2 text-sm focus:outline-none focus:border-cyan"
-                                style={{ backgroundColor: '#f0f4f8', color: '#1a1a2e' }}
+                                placeholder="Query the nervous system..." 
+                                className="flex-1 bg-char border border-gb rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-cyan"
                             />
                             <button onClick={() => handleSendMessage()} className="bg-cyan text-obs p-2 rounded-lg hover:brightness-125 transition-all">
                                 ➤
