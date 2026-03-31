@@ -66,6 +66,25 @@ const LeadFormModal: React.FC<LeadFormModalProps> = ({ isOpen, onClose }) => {
             reply_to: 'info@pithonix.ai'
         };
 
+        // Send to Make.com webhook for unified lead tracking (fire and forget)
+        fetch('https://hook.eu1.make.com/1wsr5cdrlhj595w5r6bzkacra4vbp9lq', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                source: 'Pithonix.ai Contact Form',
+                name: formData.name,
+                email: formData.email,
+                company: formData.designation,
+                industry: 'Inbound Lead',
+                country: '',
+                functions: formData.challenge,
+                fte: formData.phone,
+                timeline: formData.timeline,
+                priority: formData.challenge,
+                timestamp: new Date().toISOString()
+            })
+        }).catch(() => {});
+
         // Send both emails in parallel
         Promise.all([
             emailjs.send(SERVICE_ID, TEMPLATE_ID_INTERNAL, internalParams, PUBLIC_KEY),
