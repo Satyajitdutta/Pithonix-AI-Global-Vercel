@@ -1,0 +1,19 @@
+# Robots.txt for pithonix.ai
+# Pithonix AI India Private Limited
+
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /assets/
+
+# Block internal/admin paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /.env
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://pithonix.ai/sitemap.xml
+
+# Crawl-delay (be polite to small server)
+Crawl-delay: 5
