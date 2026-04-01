@@ -62,7 +62,7 @@ const AboutOverlay: React.FC<AboutOverlayProps> = ({ isOpen, onClose }) => {
                     </p>
                     <div className="border-l-2 border-teal/30 pl-6">
                         <p className="mb-4">
-                            At the core is <strong className="text-white">JEET</strong> (Just-In-time, Empowered, Emotionally aware Technology), our proprietary Intelligence Orchestration Layer. 
+                            At the core is <strong className="text-white">JEET</strong> (Just In Time Emotionally Empowered Technology), our proprietary Intelligence Orchestration Layer. 
                         </p>
                         <p>
                             JEET functions as a workforce operating system: continuously sensing organizational signals, detecting emerging risk, and translating complexity into decision-ready intelligence.
