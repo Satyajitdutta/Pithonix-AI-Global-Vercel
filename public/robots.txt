@@ -4,7 +4,17 @@
 User-agent: *
 Allow: /
 Allow: /blog/
-Allow: /assets/
+
+# Legacy routes — these 301-redirect to /
+# Disallow crawling to prevent duplicate content
+Disallow: /about
+Disallow: /about/
+Disallow: /innovation
+Disallow: /innovation/
+Disallow: /competencies
+Disallow: /competencies/
+Disallow: /infrastructure
+Disallow: /infrastructure/
 
 # Block internal/admin paths
 Disallow: /api/
@@ -14,6 +24,3 @@ Disallow: /node_modules/
 
 # Sitemap location
 Sitemap: https://pithonix.ai/sitemap.xml
-
-# Crawl-delay (be polite to small server)
-Crawl-delay: 5

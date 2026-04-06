@@ -173,6 +173,7 @@ const BriefingSPA: React.FC = () => {
                     <li><a href="#governance">Governance</a></li>
                     <li><a href="#roi">ROI</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="/blog/" style={{ color: '#66fcf1' }}>Blog</a></li>
                 </ul>
             </nav>
 
@@ -753,6 +754,11 @@ const BriefingSPA: React.FC = () => {
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
                         </svg>
                     </a>
+                </div>
+                <div className="flex items-center justify-center gap-6 mb-4">
+                    <a href="/blog/" className="text-silver hover:text-cyan transition-colors text-xs uppercase tracking-widest">Blog</a>
+                    <span className="text-silver opacity-30">·</span>
+                    <a href="mailto:info@pithonix.ai" className="text-silver hover:text-cyan transition-colors text-xs uppercase tracking-widest">info@pithonix.ai</a>
                 </div>
                 <p className="text-[10px] text-silver-d uppercase tracking-[4px]">
                     {COMPANY_INFO.name} · Hyderabad, India
