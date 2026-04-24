@@ -6,7 +6,7 @@
   --char: #1f2833;
   --char-l: #2a3340;
   --silver: #c5c6c7;
-  --silver-d: #8b8c8d;
+  --silver-d: #a4a5a6;
   --cyan: #66fcf1;
   --cyan-d: rgba(102,252,241,.5);
   --teal: #45a29e;
@@ -27,7 +27,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
   background: var(--obs);
   color: var(--silver);
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -74,7 +74,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 
 .spa-nav-links { display: flex; gap: 2rem; list-style: none; }
 .spa-nav-links a {
-  font-family: 'Roboto Mono', monospace; font-size: .72rem;
+  font-family: 'Roboto Mono', monospace; font-size: .85rem;
   letter-spacing: 1.5px; text-transform: uppercase; color: var(--silver-d);
   position: relative;
 }
@@ -90,7 +90,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 /* SECTIONS */
 .spa-root section { padding: 7rem 2rem; max-width: 1200px; margin: 0 auto; }
 .spa-sl {
-  font-family: 'Roboto Mono', monospace; font-size: .7rem;
+  font-family: 'Roboto Mono', monospace; font-size: .85rem;
   letter-spacing: 3px; text-transform: uppercase; color: var(--teal);
   margin-bottom: .75rem; display: block;
 }
@@ -135,7 +135,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 }
 
 .spa-hero-pre {
-  font-family: 'Roboto Mono', monospace; font-size: .72rem; letter-spacing: 4px;
+  font-family: 'Roboto Mono', monospace; font-size: .85rem; letter-spacing: 4px;
   text-transform: uppercase; color: var(--teal); margin-bottom: 1.5rem;
   opacity: 0; animation: fu .8s .2s forwards;
 }
@@ -153,13 +153,13 @@ html { scroll-behavior: smooth; font-size: 16px; }
 }
 
 .spa-hero-tag {
-  font-family: 'Roboto Mono', monospace; font-size: .68rem; letter-spacing: 5px;
+  font-family: 'Roboto Mono', monospace; font-size: .85rem; letter-spacing: 5px;
   text-transform: uppercase; color: var(--cyan-d); opacity: 0; animation: fu .8s .8s forwards;
 }
 
 .spa-hero-target { margin-top: 3rem; opacity: 0; animation: fu .8s 1s forwards; }
 .spa-hero-target span {
-  font-family: 'Roboto Mono', monospace; font-size: .6rem; letter-spacing: 2px;
+  font-family: 'Roboto Mono', monospace; font-size: .8rem; letter-spacing: 2px;
   color: var(--silver-d); padding: .4rem .8rem; border: 1px solid rgba(255,255,255,.08);
   border-radius: 4px; margin: 0 .3rem;
 }
@@ -171,7 +171,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 }
 
 .spa-hero-scroll span {
-  font-family: 'Roboto Mono', monospace; font-size: .6rem; letter-spacing: 2px;
+  font-family: 'Roboto Mono', monospace; font-size: .8rem; letter-spacing: 2px;
   text-transform: uppercase; color: var(--silver-d);
 }
 
@@ -210,8 +210,8 @@ html { scroll-behavior: smooth; font-size: 16px; }
 .spa-lb3 { background: #a78bfa; }
 
 .spa-lt { font-size: 1.25rem; font-weight: 700; margin-bottom: .25rem; }
-.spa-ld { font-size: .9rem; color: var(--silver-d); line-height: 1.5; }
-.spa-ltl { font-family: 'Roboto Mono', monospace; font-size: .65rem; color: var(--teal); letter-spacing: 1px; margin-top: .5rem; text-transform: uppercase; }
+.spa-ld { font-size: 1rem; color: var(--silver-d); line-height: 1.5; }
+.spa-ltl { font-family: 'Roboto Mono', monospace; font-size: .8rem; color: var(--teal); letter-spacing: 1px; margin-top: .5rem; text-transform: uppercase; }
 
 /* LOGIC COMPARE */
 .spa-logic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
@@ -227,8 +227,8 @@ html { scroll-behavior: smooth; font-size: 16px; }
 .spa-reasoning::after { background: var(--purple); box-shadow: 0 0 20px var(--purple); }
 
 .spa-logic-h { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: .5rem; }
-.spa-logic-sub { font-family: 'Roboto Mono', monospace; font-size: .7rem; color: var(--teal); margin-bottom: 2rem; text-transform: uppercase; }
-.spa-logic-desc { font-size: .88rem; color: var(--silver-d); line-height: 1.6; }
+.spa-logic-sub { font-family: 'Roboto Mono', monospace; font-size: .85rem; color: var(--teal); margin-bottom: 2rem; text-transform: uppercase; }
+.spa-logic-desc { font-size: 1rem; color: var(--silver-d); line-height: 1.6; }
 
 /* ANIMATIONS */
 @keyframes fu { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -273,7 +273,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 /* AGENTS */
 .spa-at { margin-bottom: 2.5rem; }
 .spa-atl {
-  font-family: 'Roboto Mono', monospace; font-size: .68rem; letter-spacing: 2px;
+  font-family: 'Roboto Mono', monospace; font-size: .85rem; letter-spacing: 2px;
   text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: .75rem;
 }
 .spa-td { width: 8px; height: 8px; border-radius: 50%; }
@@ -287,7 +287,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 }
 .spa-ac-chip:hover { border-color: var(--gbh); background: rgba(102,252,241,.04); }
 .spa-ac-code { font-family: 'Roboto Mono', monospace; font-weight: 500; font-size: .85rem; color: var(--white); margin-bottom: .2rem; }
-.spa-ac-name { font-size: .68rem; color: var(--silver-d); }
+.spa-ac-name { font-size: .85rem; color: var(--silver-d); }
 
 /* USE CASES */
 .spa-ug { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
@@ -298,7 +298,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 .spa-uc3::before { background: linear-gradient(90deg, var(--cyan), var(--teal)); }
 .spa-ui { font-size: 2rem; margin-bottom: 1rem; }
 .spa-ud {
-  font-family: 'Roboto Mono', monospace; font-size: .7rem; color: var(--teal);
+  font-family: 'Roboto Mono', monospace; font-size: .85rem; color: var(--teal);
   letter-spacing: .5px; padding: .75rem; background: rgba(69,162,158,.08);
   border-radius: 6px; border-left: 2px solid var(--teal);
 }
@@ -307,7 +307,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 .spa-pcg { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3rem; }
 .spa-pc { padding: 2.5rem; }
 .spa-pm {
-  font-style: italic; color: var(--silver); font-size: .95rem; margin-bottom: 1rem;
+  font-style: italic; color: var(--silver); font-size: 1rem; margin-bottom: 1rem;
   padding-left: 1rem; border-left: 2px solid var(--teal);
 }
 
@@ -316,7 +316,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 .spa-gpc { padding: 2rem; text-align: center; }
 .spa-gpi { font-size: 2.5rem; margin-bottom: 1rem; }
 .spa-gpd {
-  font-family: 'Roboto Mono', monospace; font-size: .65rem; letter-spacing: 1px;
+  font-family: 'Roboto Mono', monospace; font-size: .8rem; letter-spacing: 1px;
   color: var(--teal); margin-top: .75rem; text-transform: uppercase;
 }
 .spa-sb {
@@ -332,7 +332,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 }
 .spa-bp { position: relative; z-index: 1; }
 .spa-bph {
-  font-family: 'Roboto Mono', monospace; font-size: .65rem; letter-spacing: 2px;
+  font-family: 'Roboto Mono', monospace; font-size: .8rem; letter-spacing: 2px;
   text-transform: uppercase; color: var(--cyan); margin-bottom: .75rem;
 }
 .spa-bp ul { list-style: none; font-size: .85rem; color: var(--silver-d); }
@@ -340,14 +340,14 @@ html { scroll-behavior: smooth; font-size: 16px; }
 .spa-bp ul li::before { content: '›'; position: absolute; left: 0; color: var(--teal); font-weight: 500; }
 .spa-bo {
   margin-top: 1rem; padding: .6rem .8rem; background: rgba(102,252,241,.06);
-  border-radius: 6px; font-family: 'Roboto Mono', monospace; font-size: .7rem;
+  border-radius: 6px; font-family: 'Roboto Mono', monospace; font-size: .85rem;
   color: var(--cyan); text-align: center;
 }
 
 /* STATS */
 .spa-sn { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 900; color: var(--orange); line-height: 1; margin-bottom: .5rem; }
 .spa-slab { font-size: .95rem; color: var(--white); margin-bottom: .5rem; }
-.spa-ssrc { font-family: 'Roboto Mono', monospace; font-size: .65rem; color: var(--silver-d); letter-spacing: 1px; }
+.spa-ssrc { font-family: 'Roboto Mono', monospace; font-size: .8rem; color: var(--silver-d); letter-spacing: 1px; }
 
 /* ARCH */
 .spa-al { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
@@ -357,7 +357,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
   font-weight: 900; font-size: 5rem; line-height: 1;
   color: rgba(102,252,241,.06); pointer-events: none;
 }
-.spa-am { font-family: 'Roboto Mono', monospace; font-size: .7rem; color: var(--cyan); letter-spacing: 1px; margin-bottom: .8rem; }
+.spa-am { font-family: 'Roboto Mono', monospace; font-size: .85rem; color: var(--cyan); letter-spacing: 1px; margin-bottom: .8rem; }
 
 /* TECH STACK */
 .spa-sg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
@@ -373,7 +373,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 .spa-rl { font-size: 1.3rem; color: var(--white); margin-top: .5rem; }
 .spa-rt { width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 2rem; }
 .spa-rt th {
-  font-family: 'Roboto Mono', monospace; font-size: .7rem; letter-spacing: 1.5px;
+  font-family: 'Roboto Mono', monospace; font-size: .85rem; letter-spacing: 1.5px;
   text-transform: uppercase; color: var(--teal); padding: 1rem; text-align: left;
   border-bottom: 1px solid var(--gb);
 }
@@ -400,7 +400,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 /* COMPARES */
 .spa-cg { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: start; margin-top: 3rem; }
 .spa-ca { display: flex; align-items: center; justify-content: center; align-self: center; font-size: 2rem; color: var(--cyan); }
-.spa-cl { list-style: none; font-size: .88rem; }
+.spa-cl { list-style: none; font-size: 1rem; }
 .spa-cl li { padding: .4rem 0; display: flex; gap: .6rem; align-items: start; }
 .spa-mk { flex-shrink: 0; font-weight: 500; }
 .spa-mb { color: var(--orange); }
@@ -409,7 +409,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 /* QUOTE */
 .spa-qb { margin: 4rem auto; max-width: 700px; text-align: center; padding: 2rem; }
 .spa-qb blockquote { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 300; font-style: italic; color: var(--white); line-height: 1.6; }
-.spa-qb cite { display: block; margin-top: 1rem; font-family: 'Roboto Mono', monospace; font-size: .7rem; color: var(--teal); letter-spacing: 1px; font-style: normal; }
+.spa-qb cite { display: block; margin-top: 1rem; font-family: 'Roboto Mono', monospace; font-size: .85rem; color: var(--teal); letter-spacing: 1px; font-style: normal; }
 
 /* FOOTER */
 .spa-foot { padding: 4rem 2rem; border-top: 1px solid var(--gb); text-align: center; }
