@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto+Mono:wght@300;400;500&family=Roboto:wght@300;400;500&display=swap');
 
 :root {
-  --obs: #0b0c10;
+  --obs: #0A1C14;
   --char: #1f2833;
   --char-l: #2a3340;
   --silver: #c5c6c7;
@@ -58,7 +58,7 @@ html { scroll-behavior: smooth; font-size: 16px; }
 }
 
 .spa-nav.scrolled {
-  background: rgba(11,12,16,.92);
+  background: rgba(10,28,20,.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--gb);
