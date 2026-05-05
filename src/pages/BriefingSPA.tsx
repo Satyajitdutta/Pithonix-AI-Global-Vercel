@@ -165,15 +165,14 @@ const BriefingSPA: React.FC = () => {
                 </div>
                 <ul className="spa-nav-links">
                     <li><a href="#problem">Problem</a></li>
-                    <li><a href="#product-center">Product Centre</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#gcc">GCC</a></li>
+                    <li><a href="#product-center">JEVA Demo</a></li>
                     <li><a href="#scenarios">Scenarios</a></li>
                     <li><a href="#framework">Framework</a></li>
                     <li><a href="#architecture">Architecture</a></li>
-                    <li><a href="#usecases">Workflows</a></li>
-                    <li><a href="#governance">Governance</a></li>
                     <li><a href="#roi">ROI</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="/blog/" style={{ color: '#66fcf1' }}>Blog</a></li>
                 </ul>
             </nav>
 
@@ -290,6 +289,123 @@ const BriefingSPA: React.FC = () => {
                     <div className="spa-ud" style={{ maxWidth: '700px', margin: '2rem auto', textAlign: 'center', padding: '1.2rem' }}>
                         Information: "Sarah quit today." → Intelligence: "Seismic activity detected 3 months ago: Manager left + Project cancelled + Calendar gaps. 80% attrition risk. Intervene now."
                     </div>
+                </div>
+            </section>
+
+            {/* PRODUCT RANGES */}
+            <section id="products">
+                <div className="spa-fi">
+                    <span className="spa-sl">Platform Overview</span>
+                    <h2 className="spa-st">Products Built for <span className="spa-ac">Enterprise India</span></h2>
+                    <p className="spa-ss">Five focused products. Each solves a specific problem. All powered by the same JEET reasoning core.</p>
+                </div>
+                <div className="spa-fi" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginTop: '2rem' }}>
+                    {/* JEET Enterprise Platform */}
+                    <div className="spa-gl" style={{ padding: '2rem', borderLeft: '3px solid var(--cyan)', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div style={{ fontSize: '.7rem', color: 'var(--teal)', textTransform: 'uppercase', letterSpacing: '2px' }}>Core Platform</div>
+                        <h3 style={{ fontSize: '1.2rem', color: 'var(--white)', margin: 0 }}>JEET Enterprise Nervous System</h3>
+                        <p style={{ fontSize: '.9rem', color: 'var(--silver-d)', lineHeight: 1.6, margin: 0 }}>A unified AI platform connecting HR, Finance, Operations, and Compliance through 25+ autonomous agents with Graph of Thought reasoning. Built for Healthcare, GCC, BFSI, and BPO enterprises.</p>
+                        <div style={{ marginTop: 'auto', display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
+                            {['Healthcare', 'GCC', 'BFSI', 'BPO'].map(tag => (
+                                <span key={tag} style={{ fontSize: '.65rem', padding: '3px 10px', border: '1px solid var(--gb)', borderRadius: '20px', color: 'var(--silver-d)', textTransform: 'uppercase', letterSpacing: '1px' }}>{tag}</span>
+                            ))}
+                        </div>
+                        <a href="mailto:info@pithonix.ai" style={{ fontSize: '.8rem', color: 'var(--cyan)', textDecoration: 'none' }}>Request a briefing →</a>
+                    </div>
+
+                    {/* JEVA Voice Agent */}
+                    <div className="spa-gl" style={{ padding: '2rem', borderLeft: '3px solid var(--teal)', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div style={{ fontSize: '.7rem', color: 'var(--teal)', textTransform: 'uppercase', letterSpacing: '2px' }}>Voice Intelligence</div>
+                        <h3 style={{ fontSize: '1.2rem', color: 'var(--white)', margin: 0 }}>JEVA — Enterprise Voice Agent</h3>
+                        <p style={{ fontSize: '.9rem', color: 'var(--silver-d)', lineHeight: 1.6, margin: 0 }}>Autonomous voice intelligence that handles enterprise sales conversations, recruits at scale, and resolves customer queries, 24/7. Powered by Sarvam AI for phonetics and Gemini for reasoning.</p>
+                        <div style={{ marginTop: 'auto', display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
+                            {['Sales', 'Recruitment', 'Support'].map(tag => (
+                                <span key={tag} style={{ fontSize: '.65rem', padding: '3px 10px', border: '1px solid var(--gb)', borderRadius: '20px', color: 'var(--silver-d)', textTransform: 'uppercase', letterSpacing: '1px' }}>{tag}</span>
+                            ))}
+                        </div>
+                        <a href="https://jeva.pithonix.ai" target="_blank" rel="noreferrer" style={{ fontSize: '.8rem', color: 'var(--cyan)', textDecoration: 'none' }}>Live demo at jeva.pithonix.ai →</a>
+                    </div>
+
+                    {/* GCC Intelligence Playbook */}
+                    <div className="spa-gl" style={{ padding: '2rem', borderLeft: '3px solid #a78bfa', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div style={{ fontSize: '.7rem', color: '#a78bfa', textTransform: 'uppercase', letterSpacing: '2px' }}>GCC Vertical</div>
+                        <h3 style={{ fontSize: '1.2rem', color: 'var(--white)', margin: 0 }}>GCC Intelligence Playbook</h3>
+                        <p style={{ fontSize: '.9rem', color: 'var(--silver-d)', lineHeight: 1.6, margin: 0 }}>India's first AI-native GCC setup simulator. Generate a custom blueprint — city selection, 5-year cost projections, talent strategy, and risk map — in minutes, not months.</p>
+                        <div style={{ marginTop: 'auto', display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
+                            {['GCC Setup', 'Blueprint', 'Cost Model'].map(tag => (
+                                <span key={tag} style={{ fontSize: '.65rem', padding: '3px 10px', border: '1px solid var(--gb)', borderRadius: '20px', color: 'var(--silver-d)', textTransform: 'uppercase', letterSpacing: '1px' }}>{tag}</span>
+                            ))}
+                        </div>
+                        <a href="https://gcc-playbook.pithonix.ai" target="_blank" rel="noreferrer" style={{ fontSize: '.8rem', color: '#a78bfa', textDecoration: 'none' }}>Launch simulator →</a>
+                    </div>
+
+                    {/* Artha IQ */}
+                    <div className="spa-gl" style={{ padding: '2rem', borderLeft: '3px solid #f59e0b', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div style={{ fontSize: '.7rem', color: '#f59e0b', textTransform: 'uppercase', letterSpacing: '2px' }}>Consumer Platform</div>
+                        <h3 style={{ fontSize: '1.2rem', color: 'var(--white)', margin: 0 }}>Artha IQ — Financial Intelligence</h3>
+                        <p style={{ fontSize: '.9rem', color: 'var(--silver-d)', lineHeight: 1.6, margin: 0 }}>AI-powered financial intelligence for Indian professionals. Understand your money, plan your wealth, and make smarter decisions, without needing a financial advisor. Built for the Indian middle class.</p>
+                        <div style={{ marginTop: 'auto', display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
+                            {['Wealth', 'Fintech', 'India'].map(tag => (
+                                <span key={tag} style={{ fontSize: '.65rem', padding: '3px 10px', border: '1px solid var(--gb)', borderRadius: '20px', color: 'var(--silver-d)', textTransform: 'uppercase', letterSpacing: '1px' }}>{tag}</span>
+                            ))}
+                        </div>
+                        <a href="https://wealth.pithonix.ai" target="_blank" rel="noreferrer" style={{ fontSize: '.8rem', color: '#f59e0b', textDecoration: 'none' }}>Early access at wealth.pithonix.ai →</a>
+                    </div>
+
+                    {/* GOT Engine */}
+                    <div className="spa-gl" style={{ padding: '2rem', borderLeft: '3px solid var(--silver-d)', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <div style={{ fontSize: '.7rem', color: 'var(--silver-d)', textTransform: 'uppercase', letterSpacing: '2px' }}>AI Reasoning</div>
+                        <h3 style={{ fontSize: '1.2rem', color: 'var(--white)', margin: 0 }}>GOT Engine — Graph of Thought</h3>
+                        <p style={{ fontSize: '.9rem', color: 'var(--silver-d)', lineHeight: 1.6, margin: 0 }}>Advanced AI reasoning that explores multiple paths simultaneously and synthesizes insights. The reasoning core behind every Pithonix product. Built for complex enterprise decisions that chain of thought cannot handle.</p>
+                        <div style={{ marginTop: 'auto', display: 'flex', gap: '.5rem', flexWrap: 'wrap' }}>
+                            {['Reasoning', 'GOT', 'Multi-path'].map(tag => (
+                                <span key={tag} style={{ fontSize: '.65rem', padding: '3px 10px', border: '1px solid var(--gb)', borderRadius: '20px', color: 'var(--silver-d)', textTransform: 'uppercase', letterSpacing: '1px' }}>{tag}</span>
+                            ))}
+                        </div>
+                        <a href="https://got-engine.vercel.app" target="_blank" rel="noreferrer" style={{ fontSize: '.8rem', color: 'var(--silver)', textDecoration: 'none' }}>Demo at got-engine.vercel.app →</a>
+                    </div>
+                </div>
+            </section>
+
+            {/* GCC SEGMENT */}
+            <section id="gcc" style={{ background: 'linear-gradient(135deg, rgba(167,139,250,0.05) 0%, rgba(0,0,0,0) 60%)' }}>
+                <div className="spa-fi">
+                    <span className="spa-sl" style={{ color: '#a78bfa' }}>Global Capability Centres</span>
+                    <h2 className="spa-st">Set Up Your GCC in India. <span style={{ color: '#a78bfa' }}>In Weeks, Not Years.</span></h2>
+                    <p className="spa-ss">350+ GCCs are already operating in India. The ones that struggle spend 12–18 months figuring out what the first 90 days should look like. Pithonix gives you a custom playbook on day one.</p>
+                </div>
+
+                <div className="spa-fi spa-cg" style={{ gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                    <div className="spa-gl" style={{ padding: '2rem' }}>
+                        <h4 style={{ color: '#a78bfa', marginBottom: '1.2rem', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>What the GCC Playbook Simulator Generates</h4>
+                        <ul className="spa-cl">
+                            <li><span className="spa-mk spa-mg">✓</span> City-by-city comparison: Hyderabad, Bengaluru, Pune, Chennai</li>
+                            <li><span className="spa-mk spa-mg">✓</span> 5-year cost projections with talent and real estate modelling</li>
+                            <li><span className="spa-mk spa-mg">✓</span> Talent availability and attrition risk by function</li>
+                            <li><span className="spa-mk spa-mg">✓</span> Regulatory and compliance risk map</li>
+                            <li><span className="spa-mk spa-mg">✓</span> 5-phase setup roadmap from entity formation to go-live</li>
+                            <li><span className="spa-mk spa-mg">✓</span> JEET ERP, HARI, and GOT deployed from Day 1</li>
+                        </ul>
+                    </div>
+                    <div className="spa-gl" style={{ padding: '2rem' }}>
+                        <h4 style={{ color: 'var(--cyan)', marginBottom: '1.2rem', fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Why GCC Leaders Choose Pithonix</h4>
+                        <ul className="spa-cl">
+                            <li><span className="spa-mk spa-mb">→</span> Full-contract GCC setup: entity, talent, infra, compliance, go-live</li>
+                            <li><span className="spa-mk spa-mb">→</span> Not a consultant. An operator. We deliver a running centre.</li>
+                            <li><span className="spa-mk spa-mb">→</span> AI-native from day one — not retrofitted after 3 years</li>
+                            <li><span className="spa-mk spa-mb">→</span> JEVA handles talent acquisition at 800-candidate scale in 4 days</li>
+                            <li><span className="spa-mk spa-mb">→</span> Governance and compliance built into the operating model</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="spa-fi spa-sb" style={{ marginTop: '3rem', background: 'rgba(167,139,250,0.05)', border: '1px solid rgba(167,139,250,0.2)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', textAlign: 'center' }}>
+                    <h4 style={{ fontSize: '1.3rem', color: 'var(--white)' }}>Get Your Custom GCC Blueprint</h4>
+                    <p style={{ color: 'var(--silver)', maxWidth: '500px', margin: 0 }}>Input your industry, headcount target, and functional scope. The simulator generates a full GCC playbook tailored to your requirements in under 5 minutes.</p>
+                    <a href="https://gcc-playbook.pithonix.ai" target="_blank" rel="noreferrer" className="spa-btn" style={{ background: '#a78bfa', color: '#0b0c10', padding: '1rem 2.5rem', borderRadius: '8px', fontWeight: 700, fontSize: '.9rem', textDecoration: 'none', letterSpacing: '1px', textTransform: 'uppercase', display: 'inline-block' }}>
+                        Launch GCC Playbook Simulator →
+                    </a>
+                    <p style={{ fontSize: '.8rem', color: 'var(--silver-d)', margin: 0 }}>Or write to us directly: <a href="mailto:info@pithonix.ai" style={{ color: '#a78bfa' }}>info@pithonix.ai</a></p>
                 </div>
             </section>
 
@@ -756,7 +872,11 @@ const BriefingSPA: React.FC = () => {
                     </a>
                 </div>
                 <div className="flex items-center justify-center gap-6 mb-4">
-                    <a href="/blog/" className="text-silver hover:text-cyan transition-colors text-xs uppercase tracking-widest">Blog</a>
+                    <a href="https://gcc-playbook.pithonix.ai" target="_blank" rel="noreferrer" className="text-silver hover:text-cyan transition-colors text-xs uppercase tracking-widest">GCC Playbook</a>
+                    <span className="text-silver opacity-30">·</span>
+                    <a href="https://jeva.pithonix.ai" target="_blank" rel="noreferrer" className="text-silver hover:text-cyan transition-colors text-xs uppercase tracking-widest">JEVA</a>
+                    <span className="text-silver opacity-30">·</span>
+                    <a href="https://wealth.pithonix.ai" target="_blank" rel="noreferrer" className="text-silver hover:text-cyan transition-colors text-xs uppercase tracking-widest">Artha IQ</a>
                     <span className="text-silver opacity-30">·</span>
                     <a href="mailto:info@pithonix.ai" className="text-silver hover:text-cyan transition-colors text-xs uppercase tracking-widest">info@pithonix.ai</a>
                 </div>
