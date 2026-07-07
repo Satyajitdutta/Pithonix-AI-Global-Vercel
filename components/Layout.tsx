@@ -112,6 +112,26 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Footer Copyright */}
             <footer className="max-w-7xl mx-auto py-8 border-t border-white/5 text-center text-xs text-silver/40">
                 © {new Date().getFullYear()} {COMPANY_INFO.name}. All Systems Operational.
+                <div className="mt-3">
+                    <a
+                        href="https://www.startupindia.gov.in/content/sih/en/blockchainverify/verify.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Verify DPIIT Startup Recognition · DIPP271153"
+                        className="inline-flex items-center gap-1.5 text-silver/50 hover:text-silver/80 no-underline"
+                        style={{ fontSize: '0.66rem' }}
+                    >
+                        <img
+                            src="/dpiit-verify-qr.svg"
+                            alt="Scan to verify DPIIT recognition DIPP271153"
+                            width={28}
+                            height={28}
+                            loading="lazy"
+                            style={{ background: '#fff', padding: '2px', borderRadius: '3px', flex: 'none' }}
+                        />
+                        DPIIT Recognized · DIPP271153
+                    </a>
+                </div>
             </footer>
 
             {/* Overlays */}
