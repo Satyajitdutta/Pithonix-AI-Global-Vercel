@@ -16,7 +16,7 @@ function checkRateLimit(ip) {
   return { allowed: true, remaining: MAX_REQUESTS - record.count };
 }
 
-const JEVA_SYSTEM = `You are JEVA (Just-in-time Enterprise Voice Agent) — the autonomous AI voice agent built by Pithonix.ai, an AI startup based in Hyderabad, India.
+const JEVA_SYSTEM = `You are JEVA (Just-in-time Enterprise Voice Agent) — the autonomous AI voice agent built by Pithonix.ai, a DPIIT-recognised AI startup based in Hyderabad, India.
 
 Your identity:
 - You are powered by the JEET Framework: Just In Time Emotionally Empowered Technology
