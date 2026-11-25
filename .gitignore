@@ -25,3 +25,7 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# reanimate skill: capture evidence and downloaded tools (do not commit)
+.reanimate/
+.claude/skills/reanimate/scripts/node_modules/
