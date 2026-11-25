@@ -29,3 +29,7 @@ dist-ssr
 # reanimate skill: capture evidence and downloaded tools (do not commit)
 .reanimate/
 .claude/skills/reanimate/scripts/node_modules/
+.claude/skills/hallmark/scripts/node_modules/
+.claude/skills/impeccable/scripts/node_modules/
+.claude/skills/impeccable/scripts/bin/
+.claude/skills/design-taste-frontend/scripts/node_modules/
